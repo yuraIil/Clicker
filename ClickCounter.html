@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <link rel="stylesheet" href="counter.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Click Counter</div>
+    <nav class="navbar">
+        <a class="menu__link" href="ClickCounter.html">Click Counter</a>
+        <a class="menu__link" href="index.html">Home</a>
+    </nav>
+</header>
+<h1>Every Click Brings Something New!</h1>
+<div class="main-container">
+    <div id="achievement-container">
+        <img id="default-achievement" src="foto/cat.png" class="achievement-img" alt="Achievement">
+    </div>
+
+    <div class="counter-container">
+        <h3>Can You Unlock Them All?</h3> <!-- Переміщено сюди -->
+        <h2 id="counter">0</h2>
+        <div class="buttons">
+            <button id="increment" class="click-button">+</button>
+            <button id="decrement" class="click-button">-</button>
+            <button id="reset" class="reset">Reset</button>
+        </div>
+    </div>
+</div>
+
+
+<button id="gallery-button" class="gallery-btn">Gallery</button>
+
+<div id="gallery-container" class="hidden">
+    <div id="gallery-items"></div>
+    <button id="close-gallery" class="close-btn">✕</button>
+</div>
+
+<script src="counter.js"></script>
+</body>
+</html>

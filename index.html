@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест CPS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">Home</div>
+    <nav class="navbar">
+        <a class="menu__link" href="ClickCounter.html">Сlick counter</a>
+        <a class="menu__link" href="index.html">Home</a>
+    </nav>
+</header>
+
+<h1>Check your CPS</h1>
+
+<div class="main-container">
+    <div class="leaderboard">
+        <h2>Fastest Fingers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>🏆 Rank</th>
+                    <th>👤 Name</th>
+                    <th>⚡ CPS</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <!-- Дані будуть додаватися динамічно через JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <p class="info-text">Click here to start</p>
+        <div class="buttons">
+            <button class="click-button">Start</button>
+            <button class="reset">Reset</button>
+        </div>
+        <div class="timer">Time: 10 sec</div>
+        <div class="result"></div>
+    </div>
+</div>
+
+<img src="foto/cat.png" class="cat-image">
+
+<script src="script.js"></script>
+
+</body>
+</html>
