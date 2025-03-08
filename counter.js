@@ -26,8 +26,22 @@ const achievements = {
     1000: { img: "images/1000-7.gif", text: "1000-7?" },
     10000: { img: "images/kupa.gif", text: "LEGENDARY " },
     1000000: { img: "images/buzz.gif", text: "Are u cheater?" },
+    "-10": { img: "images/pull.gif", text: "It's cold today " },
+    "-20": { img: "images/frozen.gif", text: "Frozen solid " },
+    "-30": { img: "images/ghost.gif", text: "Do you even exist? " },
+    "-50": { img: "images/falling.gif", text: "Falling into the abyss..." },
+    "-75": { img: "images/everyone.gif", text: "Hello? Anyone there?" },
+    "-100": { img: "images/lost.gif", text: "You're completely lost..." },
+    "-150": { img: "images/bacteria.gif", text: "You noclipped into the Backrooms" },
+    "-200": { img: "images/darkness.gif", text: "You've entered the darkness " },
+    "-300": { img: "images/portal.gif", text: "A portal has opened..." },
+    "-500": { img: "images/segey.gif", text: "You broke reality! " },
+    "-1000": {img: "images/updown.gif", text: "Everything is upside down"},
+    "-10000": { img: "images/nextbot.gif", text: "You've reached the Infinite Void" },
+    "-1000000": { img: "images/eyes.gif", text: "You awakened something ancient" }
 
 };
+
 
 function updateCounter() {
     counterDisplay.textContent = counter;
@@ -80,14 +94,20 @@ updateCounter();
 updateGallery();
 
 document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === '*') { // Ctrl + L (мале "L")
-        event.preventDefault(); // Блокуємо стандартну дію браузера
+    // Видати всі ачивки (Ctrl + *)
+    if (event.ctrlKey && event.key === '*') { 
+        event.preventDefault();
         unlockedAchievements = Object.keys(achievements).map(Number);
         localStorage.setItem('unlockedAchievements', JSON.stringify(unlockedAchievements));
         updateGallery();
     }
 
-    
+    // Видалити всі ачивки (Ctrl + Shift + *)
+    if (event.ctrlKey && event.shiftKey && event.key === '*') { 
+        event.preventDefault();
+        unlockedAchievements = []; 
+        localStorage.setItem('unlockedAchievements', JSON.stringify(unlockedAchievements));
+        updateGallery();
+        achievementContainer.innerHTML = '<img src="foto/cat.png" class="achievement-img" alt="Achievement">';
+    }
 });
-
-
