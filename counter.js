@@ -1,10 +1,14 @@
-const incrementButton = document.getElementById('increment');
-const decrementButton = document.getElementById('decrement');
-const resetButton = document.getElementById('reset');
+// const incrementButton = document.getElementById('increment');
+// const decrementButton = document.getElementById('decrement');
+
+// const incrementButton750 = document.getElementById('increment-750');
+// const decrementButton750 = document.getElementById('decrement-750');
+
+// const resetButton = document.getElementById('reset');
 const counterDisplay = document.getElementById('counter');
 const achievementContainer = document.getElementById('achievement-container');
 
-const galleryButton = document.getElementById('gallery-button');
+// const galleryButton = document.getElementById('gallery-button');
 const galleryContainer = document.getElementById('gallery-container');
 const galleryItems = document.getElementById('gallery-items');
 const closeGalleryButton = document.getElementById('close-gallery');
@@ -75,21 +79,48 @@ function updateGallery() {
     });
 }
 
+
+// Кнопки для великого екрану
+const incrementButton = document.getElementById('increment');
+const decrementButton = document.getElementById('decrement');
+const resetButton = document.getElementById('reset');
+const galleryButton = document.getElementById('gallery-button');
+
+// Кнопки для маленького екрану
+const incrementButton750 = document.getElementById('increment-750');
+const decrementButton750 = document.getElementById('decrement-750');
+const resetButton750 = document.getElementById('reset-750');
+const galleryButton750 = document.getElementById('gallery-button-750');
+
+// Події для великого екрану
 incrementButton.addEventListener('click', () => { counter++; updateCounter(); });
 decrementButton.addEventListener('click', () => { counter--; updateCounter(); });
 resetButton.addEventListener('click', () => { 
-    counter = 0; 
-    unlockedAchievements = []; 
+    counter = 0;
+    unlockedAchievements = [];
     localStorage.setItem('counter', counter);
     localStorage.setItem('unlockedAchievements', JSON.stringify(unlockedAchievements));
     updateCounter();
     achievementContainer.innerHTML = '<img src="foto/cat.png" class="achievement-img" alt="Achievement">';
 });
-
 galleryButton.addEventListener('click', () => galleryContainer.classList.remove("hidden"));
-closeGalleryButton.addEventListener('click', () => galleryContainer.classList.add("hidden"));
 
-// Завантажуємо збережені дані при старті
+// Події для маленького екрану
+incrementButton750.addEventListener('click', () => { counter++; updateCounter(); });
+decrementButton750.addEventListener('click', () => { counter--; updateCounter(); });
+resetButton750.addEventListener('click', () => { 
+    counter = 0;
+    unlockedAchievements = [];
+    localStorage.setItem('counter', counter);
+    localStorage.setItem('unlockedAchievements', JSON.stringify(unlockedAchievements));
+    updateCounter();
+    achievementContainer.innerHTML = '<img src="foto/cat.png" class="achievement-img" alt="Achievement">';
+});
+galleryButton750.addEventListener('click', () => galleryContainer.classList.remove("hidden"));
+
+
+
+
 updateCounter();
 updateGallery();
 
@@ -111,3 +142,43 @@ document.addEventListener('keydown', (event) => {
         achievementContainer.innerHTML = '<img src="foto/cat.png" class="achievement-img" alt="Achievement">';
     }
 });
+
+
+
+
+
+function updateCounter() {
+    counterDisplay.textContent = counter;
+    localStorage.setItem('counter', counter);
+    checkAchievement(counter);
+}
+
+function checkAchievement(value) {
+    if (achievements[value] && !unlockedAchievements.includes(value)) {
+        unlockedAchievements.push(value);
+        localStorage.setItem('unlockedAchievements', JSON.stringify(unlockedAchievements));
+        showAchievement(achievements[value].img);
+        updateGallery();
+    }
+}
+
+function showAchievement(imgSrc) {
+    achievementContainer.innerHTML = `<img src="${imgSrc}" class="achievement-img">`;
+}
+
+function updateGallery() {
+    galleryItems.innerHTML = '';
+    unlockedAchievements.forEach(value => {
+        const { img, text } = achievements[value];
+
+        const item = document.createElement("div");
+        item.classList.add("gallery-item");
+        item.innerHTML = `<img src="${img}" class="gallery-img"><p>${text}</p>`;
+
+        galleryItems.appendChild(item);
+    });
+}
+
+
+galleryButton.addEventListener('click', () => galleryContainer.classList.remove("hidden"));
+closeGalleryButton.addEventListener('click', () => galleryContainer.classList.add("hidden"));

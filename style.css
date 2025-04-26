@@ -1,342 +1,387 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: lalezar;
-    text-align: center;
-    background: linear-gradient(
-        -50deg,
-        #00eff8,
-        #f800b4,
-        #ebf503,
-        #02f6c1,
-        #00eff8,
-        #9400f8
-    );
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: lalezar;
+  text-align: center;
+  background: linear-gradient(-50deg,
+      #00eff8,
+      #f800b4,
+      #ebf503,
+      #02f6c1,
+      #00eff8,
+      #9400f8);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+h1 {
+  font-family: Lalezar;
+  display: flex;
+  font-size: 3em;
+  margin-left: 100px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  h1{
-    font-family: Lalezar;
-    display: flex;
-    font-size: 3em;
-    margin-left: 100px;
+
+  25% {
+    background-position: 50% 100%;
   }
-  @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    25% {
-        background-position: 50% 100%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    75% {
-        background-position: 50% 0%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Шапка */
-  header {
-    font-family: Lalezar;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #020000;
-    color: #fff;
+
+  75% {
+    background-position: 50% 0%;
   }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
+
+  100% {
+    background-position: 0% 50%;
   }
-  
-  .navbar {
-    display: flex;
-  }
-  
-  a {
-    text-decoration: none;
-    margin-left: 10px;
-  }
-  
-  .menu__link {
-    font-family: Lalezar;
-    color: #fff;
-    line-height: 2;
-    position: relative;
-  }
-  
-  .menu__link::before {
-    content: '';
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #fff;
-    position: absolute;
-    bottom: -.3rem;
-    left: 0;
-    transition: transform .4s, opacity .4s;
-    opacity: 0;
-  }
-  
-  .menu__link:hover::before {
-    transform: translateY(-.25rem);
-    opacity: 1;
-  }
-  
-  /* Контейнер */
+}
+
+/* Шапка */
+header {
+  font-family: Lalezar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #020000;
+  color: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.menu__link {
+  font-family: Lalezar;
+  color: #fff;
+  line-height: 2;
+  position: relative;
+}
+
+.menu__link::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -.3rem;
+  left: 0;
+  transition: transform .4s, opacity .4s;
+  opacity: 0;
+}
+
+.menu__link:hover::before {
+  transform: translateY(-.25rem);
+  opacity: 1;
+}
+
+/* Контейнер */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60vh;
+  padding: 0 5%;
+}
+
+/* Лідерборд зліва */
+.leaderboard {
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Кнопки справа */
+.container {
+  flex: 1;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Кнопки */
+
+
+.buttons {
+  display: flex;
+  gap: 25px;
+}
+
+button {
+  font-size: 20px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.result {
+  font-size: 24px;
+  margin-top: 0px;
+}
+
+button.click-button {
+  margin-top: 45px;
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  border: none;
+  border-radius: 30px;
+  font-family: Lalezar;
+  font-size: 4em;
+  font-weight: bolder;
+
+  text-align: center;
+  text-decoration: none;
+  color: #ffd277;
+  background: linear-gradient(-45deg, #402fb5, #cf30aa, #402fb5);
+  background-size: 250%;
+  background-position: left;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-position 1s;
+  box-shadow:
+    0 0 0.5em rgba(0, 0, 0, 0.5),
+    0 0 1em #cf30aa,
+    0 0 1.5em #402fb5;
+}
+
+button.click-button::before {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  color: #ffd277;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background-position 1s;
+}
+
+button.click-button:hover {
+  transform: translateY(-0.1em);
+  background-position: right;
+  box-shadow:
+    0 0 1em rgba(153, 26, 26, 0.7),
+    0 0 1.5em #cf30aa,
+    0 0 2em #402fb5;
+}
+
+button.click-button:hover::before {
+  background-position: right;
+}
+
+button.click-button:active {
+  transform: scale(0.95);
+  box-shadow:
+    0 0 0.5em rgba(0, 0, 0, 0.5),
+    0 0 1em #cf30aa,
+    0 0 1.5em #402fb5;
+}
+
+
+
+button.click-button:hover::after {
+  opacity: 0.7;
+}
+
+
+button.reset {
+  margin-top: 80px;
+  display: inline-block;
+  width: 250px;
+  height: 120px;
+  border: none;
+  border-radius: 30px;
+  font-family: "Lalezar", serif;
+  font-size: 2em;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+  color: #ffd277;
+  background: linear-gradient(45deg, #8a2113, #ea1236, #f21fc453);
+  background-size: 250%;
+  background-position: left;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-position 1s;
+  box-shadow:
+    0 0 0.5em rgba(220, 17, 17, 0.5),
+    0 0 1em #c0392b,
+    0 0 1.5em #1ed62a;
+}
+
+button.reset::before {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  color: #ffd277;
+  background-color: rgba(255, 23, 23, 0.842);
+  background-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background-position 1s;
+}
+
+button.reset:hover {
+  transform: translateY(-0.1em);
+  background-position: right;
+  box-shadow:
+    0 0 1em rgba(174, 39, 39, 0.7),
+    0 0 1.5em #c0392b,
+    0 0 2em #e73cc5;
+}
+
+button.reset:hover::before {
+  background-position: right;
+}
+
+button.reset:active {
+  transform: scale(0.95);
+  box-shadow:
+    0 0 0.5em rgba(180, 31, 31, 0.5),
+    0 0 1em #c0392b,
+    0 0 1.5em #e74c3c;
+}
+
+/* кот */
+.cat-image {
+  margin-top: 40px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 140px;
+  /* Можеш змінити розмір */
+  height: auto;
+  z-index: 1000;
+  /* Щоб картинка була поверх інших елементів */
+}
+
+/*старт інфо*/
+.info-text {
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+/*лідборд*/
+.leaderboard {
+  font-family: Lalezar;
+  background: #f8d7da;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  margin: 30px;
+}
+
+.leaderboard h2 {
+  background: #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background: #f1a9a9;
+  font-size: 1.2em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td {
+  font-size: 1.2em;
+}
+
+
+@media (max-width: 1000px) {
   .main-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60vh;
-    padding: 0 5%;
-  }
-  
-  /* Лідерборд зліва */
-  .leaderboard {
-    flex: 1;
-    max-width: 300px;
-  }
-  
-  /* Кнопки справа */
-  .container {
-    flex: 1;
-    margin-left: 0;
-    display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    justify-content: center;
+    align-items: center;
   }
-  
-  
-  /* Кнопки */
-  
-  
+}
+
+@media (max-width: 700px) {
+  .cat-image {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
   .buttons {
-    display: flex;
-    gap:25px;
-  }
-  
-  button {
-    font-size: 20px;
-    padding: 15px;
-    cursor: pointer;
-  }
-  
-  .timer{
-    font-size: 24px;
-    margin-top: 20px;
-  }
-  .result {
-    font-size: 24px;
-    margin-top: 0px;
-  }
-  
-  button.click-button {
-    margin-top: 45px;
-      display: inline-block;
-      width: 300px;
-      height: 150px;
-      border: none;
-      border-radius: 30px;
-      font-family: Lalezar;
-      font-size: 4em;
-      font-weight: bolder;
-     
-      text-align: center;
-      text-decoration: none;
-      color: #ffd277;
-      background: linear-gradient(-45deg, #402fb5, #cf30aa, #402fb5);
-      background-size: 250%;
-      background-position: left;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background-position 1s;
-      box-shadow:
-        0 0 0.5em rgba(0, 0, 0, 0.5),
-        0 0 1em #cf30aa,
-        0 0 1.5em #402fb5;
-  }
-  
-  button.click-button::before {
-  
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 97%;
-      height: 90%;
-      border-radius: 8px;
-      color: #ffd277;
-      background-color: rgba(0, 0, 0, 0.842);
-      background-size: 200%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-      transition: background-position 1s;
-  }
-  
-  button.click-button:hover {
-      transform: translateY(-0.1em);
-      background-position: right;
-      box-shadow:
-        0 0 1em rgba(153, 26, 26, 0.7),
-        0 0 1.5em #cf30aa,
-        0 0 2em #402fb5;
-  }
-  
-  button.click-button:hover::before {
-      background-position: right;
-  }
-  
-  button.click-button:active {
-      transform: scale(0.95);
-      box-shadow:
-        0 0 0.5em rgba(0, 0, 0, 0.5),
-        0 0 1em #cf30aa,
-        0 0 1.5em #402fb5;
-  }
-  
-  
-  
-  button.click-button:hover::after {
-      opacity: 0.7;
-  }
-  
-  
-  button.reset {
-    margin-top: 80px;
-    display: inline-block;
-    width: 250px;
-    height: 120px;
-    border: none;
-    border-radius: 30px;
-    font-family: "Lalezar", serif;
-    font-size: 2em;
-    font-weight: bolder;
-    text-align: center;
-    text-decoration: none;
-    color: #ffd277;
-    background: linear-gradient(45deg, #8a2113, #ea1236, #f21fc453);
-    background-size: 250%;
-    background-position: left;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      background-position 1s;
-    box-shadow:
-      0 0 0.5em rgba(220, 17, 17, 0.5),
-      0 0 1em #c0392b,
-      0 0 1.5em #1ed62a;
-  }
-  
-  button.reset::before {
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 97%;
-    height: 90%;
-    border-radius: 8px;
-    color: #ffd277;
-    background-color: rgba(255, 23, 23, 0.842);
-    background-size: 200%;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
     align-items: center;
     justify-content: center;
-    z-index: 1;
-    transition: background-position 1s;
   }
-  
-  button.reset:hover {
-    transform: translateY(-0.1em);
-    background-position: right;
-    box-shadow:
-      0 0 1em rgba(174, 39, 39, 0.7),
-      0 0 1.5em #c0392b,
-      0 0 2em #e73cc5;
-  }
-  
-  button.reset:hover::before {
-    background-position: right;
-  }
-  
-  button.reset:active {
-    transform: scale(0.95);
-    box-shadow:
-      0 0 0.5em rgba(180, 31, 31, 0.5),
-      0 0 1em #c0392b,
-      0 0 1.5em #e74c3c;
-  }
-  
-  /* кот */
-  .cat-image {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    width: 140px; /* Можеш змінити розмір */
-    height: auto;
-    z-index: 1000; /* Щоб картинка була поверх інших елементів */
-  }
-  /*старт інфо*/
-  .info-text {
-    text-align: center;
-    font-size: 45px;
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
-  /*лідборд*/
-  .leaderboard {
-    font-family: Lalezar;
-    background: #f8d7da;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    margin: 30px;
-  }
-  
-  .leaderboard h2 {
-    background: #ddd;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.5em;
-  }
-  
-  table {
+
+  .buttons button {
+    font-size: 30px;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+    margin-top: 0;
   }
-  
-  th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  th {
-    background: #f1a9a9;
-    font-size: 1.2em;
-  }
-  
-  tr:last-child td {
-    border-bottom: none;
-  }
-  
-  td {
-    font-size: 1.2em;
-  }
-  
-  
+}
